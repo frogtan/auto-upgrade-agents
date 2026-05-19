@@ -1,0 +1,4 @@
+interface:
+  display_name: "Capture Project Lessons"
+  short_description: "Capture lessons or promote workflows into skills"
+  default_prompt: "Use $capture-project-lessons to decide whether this work produced a reusable lesson or skill-worthy workflow, then record or promote it."
