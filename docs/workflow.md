@@ -37,6 +37,18 @@ For multi-agent support, install promoted skills at user scope for each target a
 - Cursor
 - Claude Code
 
+## Remote Installer
+
+`scripts/install-remote.sh` is intended for explicit user execution, such as:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/frogtan/auto-upgrade-agents/main/scripts/install-remote.sh | bash
+```
+
+It clones the repository into a temporary directory, checks out `AUTO_UPGRADE_AGENTS_REF` when provided, runs `scripts/install.sh`, then runs `scripts/check-install.sh`.
+
+Skill package managers should not auto-run this script. It exists as a convenient command for users who intentionally want full multi-agent setup.
+
 ## Global Instruction Loading
 
 User-level instructions are best treated as a bootstrap layer, not an absolute guarantee.

@@ -41,6 +41,18 @@ docs/
 
 ## Install
 
+One-line install from GitHub:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/frogtan/auto-upgrade-agents/main/scripts/install-remote.sh | bash
+```
+
+Pin to a released version:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/frogtan/auto-upgrade-agents/main/scripts/install-remote.sh | env AUTO_UPGRADE_AGENTS_REF=v0.1.0 bash
+```
+
 From the repository root:
 
 ```bash

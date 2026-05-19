@@ -98,6 +98,7 @@ python3 /Users/frog/.codex/skills/.system/skill-creator/scripts/quick_validate.p
 ```bash
 bash -n scripts/install.sh
 bash -n scripts/check-install.sh
+bash -n scripts/install-remote.sh
 bash -n scripts/publish.sh
 ```
 
