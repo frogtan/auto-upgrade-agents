@@ -33,7 +33,9 @@ templates/
   project-AGENTS.md
 scripts/
   install.sh
+  publish.sh
 docs/
+  publishing.md
   workflow.md
 ```
 
@@ -102,3 +104,21 @@ There is no repository-local way to prove that every Codex surface will always l
 4. In a new session, ask Codex to confirm whether it sees the user-level lesson rule when validating setup.
 
 This repo's installer covers steps 1 and 2. Use `templates/project-AGENTS.md` for step 3.
+
+## Publishing
+
+This repository is structured as a skills repository. See `docs/publishing.md` for release steps.
+
+Validate without publishing:
+
+```bash
+./scripts/publish.sh
+```
+
+If your GitHub CLI does not include the `gh skill` preview command yet, the script will stop with an upgrade message.
+
+Publish a release:
+
+```bash
+./scripts/publish.sh v0.1.0
+```
