@@ -70,6 +70,14 @@ After publishing, users can install from the GitHub repository:
 npx skills add frogtan/auto-upgrade-agents
 ```
 
+For GitHub CLI agent-specific installs:
+
+```bash
+gh skill install frogtan/auto-upgrade-agents capture-project-lessons --agent codex --scope user
+gh skill install frogtan/auto-upgrade-agents capture-project-lessons --agent cursor --scope user
+gh skill install frogtan/auto-upgrade-agents capture-project-lessons --agent claude-code --scope user
+```
+
 If a user wants only one skill from a multi-skill repository, use the skill path:
 
 ```bash

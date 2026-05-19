@@ -49,11 +49,11 @@ From the repository root:
 
 The installer:
 
-- copies `skills/capture-project-lessons` into `~/.codex/skills/`
+- installs `skills/capture-project-lessons` for Codex, Cursor, and Claude Code at user scope
 - creates `~/LESSONS.md` if missing
-- appends the user-level AGENTS snippet to both `~/AGENTS.md` and `~/.codex/AGENTS.md`
+- appends the user-level instruction snippet to `~/AGENTS.md`, `~/.codex/AGENTS.md`, `~/.cursor/AGENTS.md`, and `~/.claude/CLAUDE.md`
 
-The two AGENTS locations are intentional. Different Codex surfaces and versions may discover user-level instructions differently, so installation writes both common locations with an idempotent marker block.
+The multiple instruction locations are intentional. Different agent surfaces and versions discover user-level instructions differently, so installation writes common locations with an idempotent marker block.
 
 Check the installation:
 
@@ -68,14 +68,22 @@ Copy the skill:
 ```bash
 mkdir -p ~/.codex/skills
 cp -R skills/capture-project-lessons ~/.codex/skills/
+mkdir -p ~/.cursor/skills
+cp -R skills/capture-project-lessons ~/.cursor/skills/
+mkdir -p ~/.claude/skills
+cp -R skills/capture-project-lessons ~/.claude/skills/
 ```
 
-Add the contents of `templates/user-AGENTS-snippet.md` to your global AGENTS files:
+Add the contents of `templates/user-AGENTS-snippet.md` to your global instruction files:
 
 ```bash
 cat templates/user-AGENTS-snippet.md >> ~/AGENTS.md
 mkdir -p ~/.codex
 cat templates/user-AGENTS-snippet.md >> ~/.codex/AGENTS.md
+mkdir -p ~/.cursor
+cat templates/user-AGENTS-snippet.md >> ~/.cursor/AGENTS.md
+mkdir -p ~/.claude
+cat templates/user-AGENTS-snippet.md >> ~/.claude/CLAUDE.md
 ```
 
 Create a user-level lesson file if needed:
@@ -98,12 +106,12 @@ The skill should decide whether to store a short lesson or promote the knowledge
 
 There is no repository-local way to prove that every Codex surface will always load a user-level `AGENTS.md`. The robust pattern is:
 
-1. Install the skill into `~/.codex/skills/`.
-2. Install the user-level snippet into both `~/AGENTS.md` and `~/.codex/AGENTS.md`.
+1. Install the skill into user-scope skill directories for each target agent.
+2. Install the user-level snippet into common instruction files for Codex, Cursor, and Claude Code.
 3. Keep a project-local `AGENTS.md` in important repositories when you need stronger guarantees.
 4. In a new session, ask Codex to confirm whether it sees the user-level lesson rule when validating setup.
 
-This repo's installer covers steps 1 and 2. Use `templates/project-AGENTS.md` for step 3.
+This repo's installer covers steps 1 and 2 for Codex, Cursor, and Claude Code. Use `templates/project-AGENTS.md` for step 3.
 
 ## Publishing
 

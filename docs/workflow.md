@@ -31,6 +31,12 @@ Use a repository-local file such as `.codex/lessons.md` for project-specific not
 
 Use `~/.codex/skills/<skill-name>` for promoted user-level skills.
 
+For multi-agent support, install promoted skills at user scope for each target agent. `auto-upgrade-agents` currently targets:
+
+- Codex
+- Cursor
+- Claude Code
+
 ## Global Instruction Loading
 
 User-level instructions are best treated as a bootstrap layer, not an absolute guarantee.
@@ -39,6 +45,8 @@ Install the snippet into both common global locations:
 
 - `~/AGENTS.md`
 - `~/.codex/AGENTS.md`
+- `~/.cursor/AGENTS.md`
+- `~/.claude/CLAUDE.md`
 
 For repositories where the self-upgrade loop is important, also add a project-local `AGENTS.md` based on `templates/project-AGENTS.md`. Project-local instructions are easier to verify because they live in the same working tree as the task.
 

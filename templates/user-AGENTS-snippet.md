@@ -1,6 +1,6 @@
 ## User-Level Lessons
 
-This block may be installed by `auto-upgrade-agents` into both `~/AGENTS.md` and `~/.codex/AGENTS.md` so different Codex surfaces can discover it.
+This block may be installed by `auto-upgrade-agents` into common user-level instruction files such as `~/AGENTS.md`, `~/.codex/AGENTS.md`, `~/.cursor/AGENTS.md`, and `~/.claude/CLAUDE.md` so different agent surfaces can discover it.
 
 Before starting work in a repository, read `~/LESSONS.md` when it exists and apply any relevant user-level lessons, especially workspace isolation and multi-session coordination rules.
 
