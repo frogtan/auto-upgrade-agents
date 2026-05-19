@@ -31,6 +31,17 @@ Use a repository-local file such as `.codex/lessons.md` for project-specific not
 
 Use `~/.codex/skills/<skill-name>` for promoted user-level skills.
 
+## Global Instruction Loading
+
+User-level instructions are best treated as a bootstrap layer, not an absolute guarantee.
+
+Install the snippet into both common global locations:
+
+- `~/AGENTS.md`
+- `~/.codex/AGENTS.md`
+
+For repositories where the self-upgrade loop is important, also add a project-local `AGENTS.md` based on `templates/project-AGENTS.md`. Project-local instructions are easier to verify because they live in the same working tree as the task.
+
 ## Promotion Rule
 
 Promote a lesson into a skill when future agents need executable guidance rather than a reminder. A good promoted skill tells the next agent:

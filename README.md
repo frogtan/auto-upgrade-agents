@@ -45,7 +45,19 @@ From the repository root:
 ./scripts/install.sh
 ```
 
-The installer copies `skills/capture-project-lessons` into `~/.codex/skills/`, creates `~/LESSONS.md` if missing, and prints the global `AGENTS.md` snippet to add to your user-level agent instructions.
+The installer:
+
+- copies `skills/capture-project-lessons` into `~/.codex/skills/`
+- creates `~/LESSONS.md` if missing
+- appends the user-level AGENTS snippet to both `~/AGENTS.md` and `~/.codex/AGENTS.md`
+
+The two AGENTS locations are intentional. Different Codex surfaces and versions may discover user-level instructions differently, so installation writes both common locations with an idempotent marker block.
+
+Check the installation:
+
+```bash
+./scripts/check-install.sh
+```
 
 ## Manual Setup
 
@@ -56,7 +68,13 @@ mkdir -p ~/.codex/skills
 cp -R skills/capture-project-lessons ~/.codex/skills/
 ```
 
-Add the contents of `templates/user-AGENTS-snippet.md` to your global `AGENTS.md`.
+Add the contents of `templates/user-AGENTS-snippet.md` to your global AGENTS files:
+
+```bash
+cat templates/user-AGENTS-snippet.md >> ~/AGENTS.md
+mkdir -p ~/.codex
+cat templates/user-AGENTS-snippet.md >> ~/.codex/AGENTS.md
+```
 
 Create a user-level lesson file if needed:
 
@@ -73,3 +91,14 @@ Capture Project Lessons
 ```
 
 The skill should decide whether to store a short lesson or promote the knowledge into a full skill.
+
+## Global Availability
+
+There is no repository-local way to prove that every Codex surface will always load a user-level `AGENTS.md`. The robust pattern is:
+
+1. Install the skill into `~/.codex/skills/`.
+2. Install the user-level snippet into both `~/AGENTS.md` and `~/.codex/AGENTS.md`.
+3. Keep a project-local `AGENTS.md` in important repositories when you need stronger guarantees.
+4. In a new session, ask Codex to confirm whether it sees the user-level lesson rule when validating setup.
+
+This repo's installer covers steps 1 and 2. Use `templates/project-AGENTS.md` for step 3.

@@ -1,5 +1,7 @@
 ## User-Level Lessons
 
+This block may be installed by `auto-upgrade-agents` into both `~/AGENTS.md` and `~/.codex/AGENTS.md` so different Codex surfaces can discover it.
+
 Before starting work in a repository, read `~/LESSONS.md` when it exists and apply any relevant user-level lessons, especially workspace isolation and multi-session coordination rules.
 
 Use `$capture-project-lessons` before the final response for non-trivial work to decide whether the session produced reusable experience.
