@@ -1,6 +1,7 @@
 ---
 name: capture-project-lessons
 description: Capture reusable lessons from Codex work into the appropriate user-level or project-level memory, and promote complex reusable knowledge into a new or updated Codex skill when it deserves procedural reuse. Use when Codex encounters a recurring problem, non-obvious fix, project-specific convention, tool/setup quirk, debugging discovery, workflow improvement, multi-step process, reusable tool workflow, or completed task that may produce durable experience worth recording for future agents or teammates. Also use when the user asks to mark, remember, record, preserve, document, distill, promote, or turn lessons, learnings, project memory, experience, gotchas, reusable knowledge, or complex workflows into a skill.
+license: MIT
 ---
 
 # Capture Project Lessons
