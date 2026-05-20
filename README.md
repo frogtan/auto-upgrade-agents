@@ -67,6 +67,8 @@ The installer:
 
 The multiple instruction locations are intentional. Different agent surfaces and versions discover user-level instructions differently, so installation writes common locations with an idempotent marker block.
 
+The instruction bootstrap logic also lives inside the skill at `skills/capture-project-lessons/scripts/bootstrap_agent_instructions.sh`, so agents can generate or update user/project `AGENTS.md` and `CLAUDE.md` files when asked.
+
 Check the installation:
 
 ```bash

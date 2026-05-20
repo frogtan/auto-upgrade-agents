@@ -76,6 +76,27 @@ Name promoted skills with lowercase hyphen-case and an action-oriented name. Pre
 
 If the user has explicitly requested automatic skill generation, proceed when the promotion criteria are met. Otherwise, ask before creating a new global skill; updating an already-triggered skill for the current request is acceptable when it is clearly in scope.
 
+## Instruction Bootstrap
+
+This skill includes `scripts/bootstrap_agent_instructions.sh` for making lessons easier to load in future sessions.
+
+Use it when the user asks to:
+
+- generate or update `AGENTS.md` or `CLAUDE.md`;
+- make lessons load more seamlessly;
+- bootstrap the current project for lesson capture;
+- install user-level instruction snippets for Codex, Cursor, or Claude Code.
+
+Examples:
+
+```bash
+bash path/to/capture-project-lessons/scripts/bootstrap_agent_instructions.sh --scope user
+bash path/to/capture-project-lessons/scripts/bootstrap_agent_instructions.sh --scope project --root /path/to/repo
+bash path/to/capture-project-lessons/scripts/bootstrap_agent_instructions.sh --scope all --root /path/to/repo
+```
+
+The script appends marker-delimited blocks only when missing. It creates `~/LESSONS.md` for user scope and `.codex/lessons.md` for project scope when absent.
+
 ## Scope And Location
 
 Decide the scope before writing.

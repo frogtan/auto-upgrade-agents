@@ -5,7 +5,8 @@ CODEX_HOME_DIR="${CODEX_HOME:-"$HOME/.codex"}"
 CURSOR_HOME_DIR="${CURSOR_HOME:-"$HOME/.cursor"}"
 CLAUDE_HOME_DIR="${CLAUDE_HOME:-"$HOME/.claude"}"
 SKILL_NAME="capture-project-lessons"
-MARKER="auto-upgrade-agents:start"
+MARKER_USER="auto-upgrade-agents:user:start"
+MARKER_LEGACY="auto-upgrade-agents:start"
 
 check_file() {
   local label="$1"
@@ -22,7 +23,7 @@ check_marker() {
   local label="$1"
   local path="$2"
 
-  if [ -f "$path" ] && grep -Fq "$MARKER" "$path"; then
+  if [ -f "$path" ] && { grep -Fq "$MARKER_USER" "$path" || grep -Fq "$MARKER_LEGACY" "$path"; }; then
     echo "ok: $label contains auto-upgrade-agents snippet"
   else
     echo "missing: $label does not contain auto-upgrade-agents snippet"

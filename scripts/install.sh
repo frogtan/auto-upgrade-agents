@@ -6,30 +6,7 @@ CODEX_HOME_DIR="${CODEX_HOME:-"$HOME/.codex"}"
 CURSOR_HOME_DIR="${CURSOR_HOME:-"$HOME/.cursor"}"
 CLAUDE_HOME_DIR="${CLAUDE_HOME:-"$HOME/.claude"}"
 SKILL_NAME="capture-project-lessons"
-SNIPPET_FILE="$ROOT_DIR/templates/user-AGENTS-snippet.md"
-SNIPPET_BEGIN="<!-- auto-upgrade-agents:start -->"
-SNIPPET_END="<!-- auto-upgrade-agents:end -->"
 TARGET_AGENTS=("codex" "cursor" "claude-code")
-
-install_agents_snippet() {
-  local target="$1"
-
-  mkdir -p "$(dirname "$target")"
-  touch "$target"
-
-  if grep -Fq "$SNIPPET_BEGIN" "$target"; then
-    echo "AGENTS snippet already present in $target"
-    return
-  fi
-
-  {
-    printf '\n%s\n' "$SNIPPET_BEGIN"
-    cat "$SNIPPET_FILE"
-    printf '%s\n' "$SNIPPET_END"
-  } >> "$target"
-
-  echo "Added AGENTS snippet to $target"
-}
 
 copy_skill_to_dir() {
   local target_dir="$1"
@@ -56,13 +33,6 @@ install_skills() {
 
 install_skills
 
-if [ ! -f "$HOME/LESSONS.md" ]; then
-  cp "$ROOT_DIR/templates/user-LESSONS.md" "$HOME/LESSONS.md"
-fi
-
-install_agents_snippet "$HOME/AGENTS.md"
-install_agents_snippet "$CODEX_HOME_DIR/AGENTS.md"
-install_agents_snippet "$CURSOR_HOME_DIR/AGENTS.md"
-install_agents_snippet "$CLAUDE_HOME_DIR/CLAUDE.md"
+bash "$ROOT_DIR/skills/$SKILL_NAME/scripts/bootstrap_agent_instructions.sh" --scope user
 
 echo "Installed user-level lesson support. Run ./scripts/check-install.sh to inspect installation."

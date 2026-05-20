@@ -49,6 +49,24 @@ It clones the repository into a temporary directory, checks out `AUTO_UPGRADE_AG
 
 Skill package managers should not auto-run this script. It exists as a convenient command for users who intentionally want full multi-agent setup.
 
+## Bootstrap From The Skill
+
+The `capture-project-lessons` skill includes:
+
+```text
+skills/capture-project-lessons/scripts/bootstrap_agent_instructions.sh
+```
+
+Use it to make future loading more seamless:
+
+```bash
+bash skills/capture-project-lessons/scripts/bootstrap_agent_instructions.sh --scope user
+bash skills/capture-project-lessons/scripts/bootstrap_agent_instructions.sh --scope project --root /path/to/repo
+bash skills/capture-project-lessons/scripts/bootstrap_agent_instructions.sh --scope all --root /path/to/repo
+```
+
+This keeps instruction-file generation close to the skill that depends on it.
+
 ## Global Instruction Loading
 
 User-level instructions are best treated as a bootstrap layer, not an absolute guarantee.
