@@ -16,7 +16,7 @@ Ensures agent instruction files contain auto-upgrade-agents bootstrap rules.
 
 Scopes:
   user     Update user-level instruction files and ~/LESSONS.md.
-  project  Update project-level AGENTS.md and .codex/lessons.md.
+  project  Update project-level AGENTS.md, CLAUDE.md, and .codex/lessons.md.
   all      Do both. This is the default.
 USAGE
 }
@@ -136,6 +136,7 @@ Use `$capture-project-lessons` before the final response to decide whether this 
 - Do not record secrets, one-off logs, or generic programming advice.'
 
   append_marked_block "$root/AGENTS.md" "$MARKER_PROJECT_BEGIN" "$MARKER_PROJECT_END" "$project_block"
+  append_marked_block "$root/CLAUDE.md" "$MARKER_PROJECT_BEGIN" "$MARKER_PROJECT_END" "$project_block"
 
   if [ ! -f "$lesson_file" ]; then
     mkdir -p "$(dirname "$lesson_file")"

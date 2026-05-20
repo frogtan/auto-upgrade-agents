@@ -74,6 +74,8 @@ For project scope, the generated `AGENTS.md` explicitly mounts both:
 
 This makes project-local lesson files discoverable at session start instead of merely creating them on disk.
 
+For Claude Code project scope, the bootstrap script writes the same mount block to `CLAUDE.md`. Codex and Cursor use `AGENTS.md`; Claude Code uses `CLAUDE.md`.
+
 ## Global Instruction Loading
 
 User-level instructions are best treated as a bootstrap layer, not an absolute guarantee.

@@ -95,7 +95,7 @@ bash path/to/capture-project-lessons/scripts/bootstrap_agent_instructions.sh --s
 bash path/to/capture-project-lessons/scripts/bootstrap_agent_instructions.sh --scope all --root /path/to/repo
 ```
 
-The script appends marker-delimited blocks only when missing. It creates `~/LESSONS.md` for user scope and `.codex/lessons.md` for project scope when absent. Project-scope bootstrap mounts both `~/LESSONS.md` and `.codex/lessons.md` in the project root `AGENTS.md` so future sessions know which lesson files to load.
+The script appends marker-delimited blocks only when missing. It creates `~/LESSONS.md` for user scope and `.codex/lessons.md` for project scope when absent. Project-scope bootstrap mounts both `~/LESSONS.md` and `.codex/lessons.md` in project root `AGENTS.md` for Codex/Cursor and `CLAUDE.md` for Claude Code so future sessions know which lesson files to load.
 
 ## Scope And Location
 

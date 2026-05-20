@@ -31,6 +31,7 @@ templates/
   user-AGENTS-snippet.md
   user-LESSONS.md
   project-AGENTS.md
+  project-CLAUDE.md
 scripts/
   install.sh
   publish.sh
