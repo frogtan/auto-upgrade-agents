@@ -123,7 +123,10 @@ bootstrap_project() {
 
   project_block='## Auto-Upgrade Agent Bootstrap
 
-Before starting non-trivial work in this repository, read `~/LESSONS.md` when it exists and apply relevant user-level lessons.
+Before starting non-trivial work in this repository, load these lesson files when they exist:
+
+- User-level lessons: `~/LESSONS.md`
+- Project-level lessons: `.codex/lessons.md`
 
 Use `$capture-project-lessons` before the final response to decide whether this work produced reusable experience.
 

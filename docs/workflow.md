@@ -67,6 +67,13 @@ bash skills/capture-project-lessons/scripts/bootstrap_agent_instructions.sh --sc
 
 This keeps instruction-file generation close to the skill that depends on it.
 
+For project scope, the generated `AGENTS.md` explicitly mounts both:
+
+- `~/LESSONS.md`
+- `.codex/lessons.md`
+
+This makes project-local lesson files discoverable at session start instead of merely creating them on disk.
+
 ## Global Instruction Loading
 
 User-level instructions are best treated as a bootstrap layer, not an absolute guarantee.

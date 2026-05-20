@@ -1,5 +1,8 @@
 # Project Agent Instructions
 
+- Before starting non-trivial work, load these lesson files when they exist:
+  - User-level lessons: `~/LESSONS.md`
+  - Project-level lessons: `.codex/lessons.md`
 - Before the final response for non-trivial work, use `$capture-project-lessons` to decide whether the session produced reusable experience.
 - Record cross-project or user-level lessons in `~/LESSONS.md`.
 - Record project-specific lessons in this repository's local lesson file, such as `.codex/lessons.md` or another existing project memory file.
